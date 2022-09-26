@@ -1,11 +1,15 @@
 package com.prat.capstonehld.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.*;
 import java.math.BigInteger;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserDto {
 
 //    private long id;

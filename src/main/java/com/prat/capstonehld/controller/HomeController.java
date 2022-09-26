@@ -35,6 +35,12 @@ public class HomeController {
         return new ResponseEntity<>(accountService.getAccount(id),HttpStatus.OK);
     }
 
+    @GetMapping("/get")
+    public ResponseEntity<String> getAccount()
+    {
+        return ResponseEntity.ok("test");
+    }
+
     @PostMapping("/signUp")
     public ResponseEntity<Boolean> addUser(@Valid @RequestBody UserDto userDto)  {
 

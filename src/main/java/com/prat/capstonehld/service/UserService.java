@@ -5,6 +5,7 @@ import com.prat.capstonehld.exception.MyValidationException;
 import com.prat.capstonehld.exception.UsernameAndBankIdNotUniqueException;
 import com.prat.capstonehld.modal.Account;
 import com.prat.capstonehld.modal.User;
+import com.prat.capstonehld.repository.AccountRepository;
 import com.prat.capstonehld.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -21,14 +22,14 @@ import java.util.ArrayList;
 public class UserService implements UserDetailsService {
 
     @Autowired public UserRepository userRepository;
-    @Autowired public AccountService accountService;
+    @Autowired public AccountRepository accountRepository;
     private long bankId;
 
     @Transactional
     public boolean saveDto(UserDto userDto) {
         long bankId= Long.parseLong(userDto.getBankId());
         Account account=new Account(userDto.getAccountDto(), bankId);
-        accountService.addAccount(account);
+        accountRepository.save(account);
         User user=new User(userDto,account);
         try
         {

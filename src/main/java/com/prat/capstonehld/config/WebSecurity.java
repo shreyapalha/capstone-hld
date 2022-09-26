@@ -50,6 +50,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/api/signUp").permitAll()
+                .antMatchers("/api/get").permitAll()
                 .antMatchers("/api/authenticate")
                 .permitAll()
                 .anyRequest()
